@@ -1,13 +1,22 @@
 {
   "name": "hono-mf",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hono applications with Module Federation",
   "main": "index.js",
   "scripts": {
+    "dev:host": "cd host && npm run dev",
+    "dev:remote": "cd remote && npm run dev", 
+    "dev": "concurrently \"npm run dev:remote\" \"npm run dev:host\"",
+    "build:host": "cd host && npm run build",
+    "build:remote": "cd remote && npm run build",
+    "build": "npm run build:remote && npm run build:host",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["hono", "module-federation", "microfrontends"],
   "author": "",
   "license": "MIT",
-  "packageManager": "pnpm@10.14.0"
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
